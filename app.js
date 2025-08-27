@@ -13,7 +13,7 @@ const verifyToken = process.env.VERIFY_TOKEN;
 
 // Route for GET requests
 app.get('/', (req, res) => {
-  const { 'hub.mode': mode, 'hub.challenge': challenge, 'EAAaXKa9hIr4BPY1A1Bb6Ynsl0mBzRZA86Gp4TkkYcin6FZCnsI2qSETJE2olMHisjDQcGZADpeAlhiywjsiF08ByKt76OiV8yKJbMdgqZBq7ZAYO5BDcM1psiumjSMJF6TPQXRAnZAoudKqfwDtuTkQkZBEDNwDq0emq5wQpEb9H9lc9Y9CrQVhFFe2EDKXfh497OyUc1lC9lqE1S23T79VD7l6esxCvl0izkwd44zf2aLBnQZDZD': token } = req.query;
+  const { 'hub.mode': mode, 'hub.challenge': challenge, 'sktaccesstoken': token } = req.query;
 
   if (mode === 'subscribe' && token === verifyToken) {
     console.log('WEBHOOK VERIFIED');

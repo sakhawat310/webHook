@@ -1,4 +1,3 @@
-npm install express
 // Import Express.js
 const express = require('express');
 

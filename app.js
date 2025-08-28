@@ -13,7 +13,9 @@ const verifyToken = process.env.VERIFY_TOKEN;
 
 // Route for GET requests
 app.get('/webhook', (req, res) => {
-  const { 'hub.mode': mode, 'hub.challenge': challenge, 'sktaccesstoken': token } = req.query;
+  const mode = req.query['hub.mode'];
+  const token = req.query['sktaccesstoken'];  // ✅ correct param name
+  const challenge = req.query['hub.challenge'];
 
   if (mode === 'subscribe' && token === verifyToken) {
     console.log('WEBHOOK VERIFIED');
@@ -22,6 +24,7 @@ app.get('/webhook', (req, res) => {
     res.status(403).end();
   }
 });
+
 
 // Route for POST requests
 app.post('/webhook', (req, res) => {
